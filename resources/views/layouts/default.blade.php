@@ -1,65 +1,53 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     @include('elements.header')
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<!-- REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
 
     <header class="main-header">
+        <nav class="navbar navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Logo -->
+                    @include('elements.logo')
+                </div>
 
-        <!-- Logo -->
-        @include('elements.logo')
+                <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                </div><!-- /.navbar-collapse -->
 
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            @include('elements.navbar')
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                </div><!-- /.navbar-custom-menu -->
+
+            </div><!-- /.container-fluid -->
         </nav>
-
     </header>
 
-
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            @include('elements.sidebar')
-        </section>
-        <!-- /.sidebar -->
-    </aside>
-
-
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        <div class="container">
 
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            @include('elements.contentheader')
-        </section>
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                @include('elements.contentheader')
+            </section>
 
-        <!-- Main content -->
-        <section class="content">
-            @yield('content')
-        </section><!-- /.content -->
+            <!-- Main content -->
+            <section class="content">
+                @yield('content')
+            </section><!-- /.content -->
 
+        </div><!-- /.container -->
     </div><!-- /.content-wrapper -->
 
-
     <footer class="main-footer">
-        @include('elements.footer')
+        <div class="container">
+            @include('elements.footer')
+        </div><!-- /.container -->
     </footer>
-
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        @include('elements.control')
-    </aside><!-- /.control-sidebar -->
-
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class="control-sidebar-bg"></div>
 
 </div><!-- ./wrapper -->
 
