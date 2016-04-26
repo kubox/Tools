@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="/assets/css/AdminLTE.min.css">
 <link rel="stylesheet" href="/assets/css/skins/_all-skins.min.css">
 
+<!-- iCheck -->
+<link rel="stylesheet" href="/assets/plugins/iCheck/square/blue.css">
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

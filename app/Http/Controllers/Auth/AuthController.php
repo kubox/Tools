@@ -24,6 +24,7 @@ class AuthController extends Controller
 
     /* 処理成功時のリダイレクト先 */
     protected $redirectTo = '/admin/dashboard';
+
     /* ログイン認証で利用する項目 */
     protected $username = 'name';
 
@@ -66,7 +67,6 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-
 
     protected function postLogin()
     {
