@@ -63,6 +63,8 @@
 
 </div><!-- ./wrapper -->
 
+@include('elements.admin.modal')
+
 @include('elements.admin.jquery')
 
 </body>

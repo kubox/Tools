@@ -67,11 +67,11 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-
+/*
     protected function postLogin()
     {
         return view('admin.dashboard');
     }
-
+*/
 
 }

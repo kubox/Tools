@@ -34,4 +34,20 @@
 <!--[if lt IE 9]>
 <script src="/assets/js/html5shiv-3.7.3.min.js"></script>
 <script src="/assets/js/respond-1.4.4.min.js"></script>
+
+
+<style>
+    .dialog-modal .modal {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        display: block;
+        z-index: 1;
+    }
+    .dialog-modal .modal {
+        background: transparent !important;
+    }
+</style>
 <![endif]-->

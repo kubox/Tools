@@ -5,7 +5,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
     @if (count($errors) > 0)
-        <div class="callout callout-danger" role="alert">
+        <div class="callout callout-warning" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <ul>
                 @foreach ($errors->all() as $error)
@@ -17,7 +17,7 @@
 
     <div class="form-group has-feedback @if($errors->first('name'))has-error @endif">
         <input type="text" class="form-control" placeholder="名前を入力してください" name="name" value="{{ old('name') }}">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback @if($errors->first('password'))has-error @endif">
         <input type="password" class="form-control" placeholder="パスワードを入力してください" name="password">

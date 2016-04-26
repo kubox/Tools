@@ -17,12 +17,15 @@
         <a href="#">menu</a>
     </div>
 </li>
+
 <!-- Menu Footer-->
 <li class="user-footer">
     <div class="pull-left">
         <a href="#" class="btn btn-default btn-flat">Edit</a>
     </div>
     <div class="pull-right">
-        <a href="/auth/logout" class="btn btn-default btn-flat bg-yellow">Sign out</a>
+        <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#logout">
+            Sign out
+        </button>
     </div>
 </li>
