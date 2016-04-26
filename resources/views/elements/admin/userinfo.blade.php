@@ -11,7 +11,7 @@
         <a href="#">menu</a>
     </div>
     <div class="col-xs-4 text-center">
-        <a href="#">Login</a>
+        <a href="#">menu</a>
     </div>
     <div class="col-xs-4 text-center">
         <a href="#">menu</a>
@@ -23,6 +23,6 @@
         <a href="#" class="btn btn-default btn-flat">Edit</a>
     </div>
     <div class="pull-right">
-        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+        <a href="/auth/logout" class="btn btn-default btn-flat bg-yellow">Sign out</a>
     </div>
 </li>

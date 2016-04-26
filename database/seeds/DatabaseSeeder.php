@@ -14,7 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call('UserTableSeeder');
+        // Create User Default
+        \App\User::create([
+            'name'     => 'admin',
+            'password' => 'testtest',
+        ]);
 
         Model::reguard();
     }

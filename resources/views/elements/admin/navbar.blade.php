@@ -11,7 +11,7 @@
                 <span class="hidden-xs">User Name</span>
             </a>
             <ul class="dropdown-menu">
-                @include('elements.userinfo')
+                @include('elements.admin.userinfo')
             </ul>
         </li>
 
