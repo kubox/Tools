@@ -15,6 +15,13 @@
         </div>
     @endif
 
+    @if(session('message'))
+        <div class="callout callout-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            {{{ session('message') }}}
+        </div>
+    @endif
+
     <div class="form-group has-feedback @if($errors->first('name'))has-error @endif">
         <input type="text" class="form-control" placeholder="名前を入力してください" name="name" value="{{ old('name') }}">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
