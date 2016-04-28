@@ -13,6 +13,6 @@ Route::get('/', function () {
     ]
 );
 
-\Route::group(['middleware' => 'auth'], function () {
+//\Route::group(['middleware' => 'auth'], function () {
     \Route::resource('admin/dashboard', 'Admin\DashboardController', ['only' => ['index']]);
-});
+//});

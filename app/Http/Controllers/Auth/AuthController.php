@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
-use App\Http\Requests\LoginRequest;
+use App\Services\UserService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRegisterRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
 
 class AuthController extends Controller
 {
@@ -16,7 +17,7 @@ class AuthController extends Controller
     protected $auth;
 
     /* 処理成功時のリダイレクト先 */
-    protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = 'admin.dashboard.index';
 
     /* ログイン認証で利用する項目 */
     protected $username = 'name';
@@ -32,27 +33,11 @@ class AuthController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            //'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
-
-    /**
      * @param LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postLogin(LoginRequest $request)
     {
-
         $result = $this->auth->attempt(
             $request->only(['name', 'password']),
             $request->get('remember', false)
@@ -65,5 +50,24 @@ class AuthController extends Controller
 
         return redirect()->route('admin.dashboard.index');
     }
+
+
+    /**
+     * @param UserRegisterRequest $request
+     * @param UserService $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postRegister(UserRegisterRequest $request, UserService $user)
+    {
+        $input = $request->only(['name', 'password']);
+        $result = $user->registerUser($input);
+        $this->auth->login($result);
+
+        //todo アカウント一覧に遷移 処理成功と対象を引継ぎアナウンスする
+
+        return redirect()->route('admin.dashboard.index');
+
+    }
+
 
 }
