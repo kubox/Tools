@@ -17,10 +17,17 @@ class AuthController extends Controller
     protected $auth;
 
     /* 処理成功時のリダイレクト先 */
-    protected $redirectTo = 'admin.dashboard.index';
+    protected $redirectTo = '/admin/dashboard';
+
+    /* 処理成功時のリダイレクト先 優先的 */
+    //protected $redirectPath = '/admin/dashboard';
+
+    /* 失敗時のリダイレクト先 */
+    protected $loginPath = '/login';
 
     /* ログイン認証で利用する項目 */
     protected $username = 'name';
+
 
     /**
      * @param Guard $auth
@@ -50,7 +57,6 @@ class AuthController extends Controller
 
         return redirect()->route('admin.dashboard.index');
     }
-
 
     /**
      * @param UserRegisterRequest $request
