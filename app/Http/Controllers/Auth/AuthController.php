@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Services\UserService;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRegisterRequest;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -34,7 +32,7 @@ class AuthController extends Controller
      */
     public function __construct(Guard $auth)
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest', ['except' => ['getLogout','postRegister']]);
 
         $this->auth = $auth;
     }
@@ -57,23 +55,5 @@ class AuthController extends Controller
 
         return redirect()->route('admin.dashboard.index');
     }
-
-    /**
-     * @param UserRegisterRequest $request
-     * @param UserService $user
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postRegister(UserRegisterRequest $request, UserService $user)
-    {
-        $input = $request->only(['name', 'password']);
-        $result = $user->registerUser($input);
-        $this->auth->login($result);
-
-        //todo アカウント一覧に遷移 処理成功と対象を引継ぎアナウンスする
-
-        return redirect()->route('admin.dashboard.index');
-
-    }
-
 
 }

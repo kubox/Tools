@@ -7,7 +7,7 @@
                 <h3 class="box-title">アカウント登録</h3>
             </div>
 
-            <form class="form-horizontal" role="form" method="POST" action="{{ route('post.register') }}">
+            <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.account.store') }}">
                 {{-- CSRF対策--}}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

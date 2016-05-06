@@ -52,7 +52,7 @@
 
         <li class="header">アカウント管理</li>
         <li class="treeview">
-            <a href="{{ route('get.register') }}">
+            <a href="{{ route('admin.account.create') }}">
                 <i class="fa fa-user-plus"></i>
                 <span>登録する</span>
             </a>
