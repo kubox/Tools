@@ -2,6 +2,7 @@
     <ul class="sidebar-menu">
 
         <li class="header">NAVIGATION 1</li>
+        <!-- todo 選択中機能のアクティブオープン -->
         <li class="active treeview">
             <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
@@ -50,12 +51,25 @@
             </ul>
         </li>
 
-        <li class="header">アカウント管理</li>
+        <li class="header">アカウントメニュー</li>
         <li class="treeview">
-            <a href="{{ route('admin.account.create') }}">
-                <i class="fa fa-user-plus"></i>
-                <span>登録する</span>
+            <a href="#">
+                <i class="fa fa-users"></i> <span>アカウント管理</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
+            <ul class="treeview-menu">
+                <li class="treeview">
+                    <a href="{{ route('admin.account.create') }}">
+                        <i class="fa fa-user-plus"></i>
+                        <span>登録する</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.account.index') }}">
+                        <i class="fa fa-users"></i>
+                        <span>一覧で見る</span>
+                    </a>
+                </li>
+            </ul>
         </li>
 
     </ul>

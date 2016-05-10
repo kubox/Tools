@@ -32,4 +32,17 @@ class UserService
 
         return $user;
     }
+
+    /**
+     * @param int $page
+     * @param int $limit
+     *
+     */
+    public function getPage($page = 1, $limit = 20)
+    {
+        $result = $this->user->byPage($page, $limit);
+
+        return $result;
+    }
+
 }
