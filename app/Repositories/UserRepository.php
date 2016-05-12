@@ -26,7 +26,9 @@ class UserRepository implements UserRepositoryInterface
      */
     public function save(array $params)
     {
-        return $this->eloquent->create($params);
+        $attributes['id'] = (isset($params['id'])) ? $params['id'] : null;
+        $result = $this->eloquent->updateOrCreate($attributes, $params);
+        return $result;
     }
 
     /**

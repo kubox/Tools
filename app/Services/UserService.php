@@ -24,11 +24,23 @@ class UserService
 
     /**
      * @param array $params
+     *
      * @return \App\DataAccess\Eloquent\User
      */
     public function registerUser(array $params)
     {
         $user = $this->user->save($params);
+
+        return $user;
+    }
+
+    /**
+     * @param int $id
+     *
+     */
+    public function getUser($id)
+    {
+        $user = $this->user->find($id);
 
         return $user;
     }

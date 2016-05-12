@@ -13,6 +13,7 @@
                         <tr>
                             <th>ID</th>
                             <th>名前</th>
+                            <th>最終更新</th>
                             <th>登録日時</th>
                             <th>機能</th>
                         </tr>
@@ -20,6 +21,7 @@
                         <tr>
                             <td>{{ $row->id }}</td>
                             <td>{{ $row->name }}</td>
+                            <td>{{ $row->update_at }}</td>
                             <td>{{ $row->created_at }}</td>
                             <td>
                                 <a href="{{ route('admin.account.edit', [$row->id]) }}"><span class="label label-primary">編集する</span></a>
@@ -27,7 +29,7 @@
                         </tr>
                         @empty
                             <tr>
-                                <td colspan="3">ブログ記事がありません</td>
+                                <td colspan="3">登録アカウントがありません</td>
                             </tr>
                         @endforelse
                     </table>
