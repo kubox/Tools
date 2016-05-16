@@ -14,5 +14,5 @@ Route::get('/', function () {
 \Route::group(['middleware' => 'auth'], function () {
     \Route::resource('admin/dashboard', 'Admin\DashboardController', ['only' => ['index']]);
 
-    \Route::resource('admin/account', 'Admin\AccountController', ['except' => ['destroy', 'show']]);
+    \Route::resource('admin/account', 'Admin\AccountController', ['except' => ['show']]);
 });

@@ -9,6 +9,15 @@
                 </div>
 
                 <div class="box-body table-responsive no-padding">
+
+                    @if ($success)
+                        <div class="col-sm-11">
+                            <div class="callout callout-success" role="alert">
+                                <p>{{ $success }}</p>
+                            </div>
+                        </div>
+                    @endif
+
                     <table class="table table-hover">
                         <tr>
                             <th>ID</th>
@@ -24,7 +33,37 @@
                             <td>{{ $row->update_at }}</td>
                             <td>{{ $row->created_at }}</td>
                             <td>
-                                <a href="{{ route('admin.account.edit', [$row->id]) }}"><span class="label label-primary">編集する</span></a>
+                                <form class="form-horizontal" id="formEdit" role="form" method="GET" action="{{ route('admin.account.edit', [$row->id]) }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-info btn-sm pull-left margin">編集する</button>
+                                </form>
+
+                                <button type="submit" class="btn btn-warning btn-sm pull-left margin" data-toggle="modal" data-target="#destroy">削除する</button>
+
+                                <div class="dialog-modal">
+                                    <div class="modal fade" id="destroy" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">削除の確認</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>{{ $row->id }} のアカウントを削除してもよろしいですか？</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
+                                                    <form class="form-horizontal" id="formDestroy" role="form" method="POST" action="{{ route('admin.account.destroy', [$row->id]) }}">
+                                                        {!! method_field('delete') !!}
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <button type="submit" class="btn btn-warning">削除する</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </td>
                         </tr>
                         @empty

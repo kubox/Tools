@@ -57,4 +57,14 @@ class UserService
         return $result;
     }
 
+    /*
+     * @param int $id
+     */
+    public function destroyUser($id)
+    {
+        $result = $this->user->destroy($id);
+
+        return $result;
+    }
+
 }

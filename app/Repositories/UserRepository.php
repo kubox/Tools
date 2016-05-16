@@ -62,4 +62,14 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->eloquent->paginate($limit);
     }
+
+    /*
+     * @param int $id
+     */
+    public function destroy($id)
+    {
+        $result = $this->eloquent->destroy($id);
+
+        return $result;
+    }
 }
