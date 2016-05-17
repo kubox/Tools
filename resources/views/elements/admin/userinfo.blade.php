@@ -2,7 +2,7 @@
 <li class="user-header">
     <p>
         Member Infomation Message
-        <small>more infomations</small>
+        <small>ID:{{ $user->id }}  {{ $user->name }}</small>
     </p>
 </li>
 <!-- Menu Body -->
