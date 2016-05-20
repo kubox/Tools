@@ -37,6 +37,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             @include('elements.admin.contentheader')
+            @yield('contentheader')
         </section>
 
         <!-- Main content -->
@@ -62,6 +63,8 @@
     <div class="control-sidebar-bg"></div>
 
 </div><!-- ./wrapper -->
+
+@yield('options')
 
 @include('elements.admin.modal')
 

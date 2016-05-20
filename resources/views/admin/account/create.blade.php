@@ -1,5 +1,17 @@
 @extends('layouts.admin')
 
+@section('contentheader')
+    <h1>
+        Account
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Account</li>
+        <li class="active">Create</li>
+    </ol>
+@endsection
+
 @section('content')
     <div class="col-md-8 col-md-offset-2">
         <div class="box box-info">
@@ -49,4 +61,7 @@
 
         </div>
     </div>
-@stop
+@endsection
+
+@section('options')
+@endsection

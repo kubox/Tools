@@ -1,5 +1,16 @@
 @extends('layouts.admin')
 
+@section('contentheader')
+    <h1>
+        Account
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Account</li>
+    </ol>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-xs-12">
@@ -10,10 +21,16 @@
 
                 <div class="box-body table-responsive no-padding">
 
-                    @if ($success)
+                    @if ($viewmesseage['success'])
                         <div class="col-sm-11">
                             <div class="callout callout-success" role="alert">
-                                <p>{{ $success }}</p>
+                                <p>{{ $viewmesseage['success'] }}</p>
+                            </div>
+                        </div>
+                    @elseif($viewmesseage['error'])
+                        <div class="col-sm-11">
+                            <div class="callout callout-danger" role="alert">
+                                <p>{{ $viewmesseage['error'] }}</p>
                             </div>
                         </div>
                     @endif
@@ -35,35 +52,10 @@
                             <td>
                                 <form class="form-horizontal" id="formEdit" role="form" method="GET" action="{{ route('admin.account.edit', [$row->id]) }}">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <button type="submit" class="btn btn-info btn-sm pull-left margin">編集する</button>
+                                    <button type="submit" class="btn btn-info btn-sm pull-left">編集する</button>
                                 </form>
 
-                                <button type="submit" class="btn btn-warning btn-sm pull-left margin" data-toggle="modal" data-target="#destroy">削除する</button>
-
-                                <div class="dialog-modal">
-                                    <div class="modal fade" id="destroy" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title">削除の確認</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>{{ $row->id }} のアカウントを削除してもよろしいですか？</p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
-                                                    <form class="form-horizontal" id="formDestroy" role="form" method="POST" action="{{ route('admin.account.destroy', [$row->id]) }}">
-                                                        {!! method_field('delete') !!}
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <button type="submit" class="btn btn-warning">削除する</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <button type="submit" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#destroy">削除する</button>
                             </td>
                         </tr>
                         @empty
@@ -81,4 +73,30 @@
             </div>
         </div>
     </div>
-@stop
+@endsection
+
+@section('options')
+    <div class="dialog-modal">
+        <div class="modal fade" id="destroy" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">削除の確認</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ $row->id }} のアカウントを削除してもよろしいですか？</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">キャンセル</button>
+                        <form class="form-horizontal" id="formDestroy" role="form" method="POST" action="{{ route('admin.account.destroy', [$row->id]) }}">
+                            {!! method_field('delete') !!}
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-warning">削除する</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
