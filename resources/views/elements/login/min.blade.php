@@ -34,15 +34,7 @@
     <p class="login-box-msg"></p>
 
     <div class="row">
-        <div class="col-xs-8">
-            <div class="checkbox icheck">
-                <label>
-                    <input type="checkbox" name="remember"> パスワードを記憶
-                </label>
-            </div>
-        </div>
-
-        <div class="col-xs-4">
+        <div class="col-xs-12">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
     </div>

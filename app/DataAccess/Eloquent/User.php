@@ -14,6 +14,8 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
  * @property integer $id
  * @property string $name
  * @property string $email
+ * @property integer $admin
+ * @property string $comment
  * @property string $password
  * @property string $auth_token
  * @property string $remember_token

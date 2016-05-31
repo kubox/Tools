@@ -32,15 +32,6 @@
                         <input type="password" class="form-control" id="inputPassword" placeholder="パスワードを入力してください" name="password">
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember"> パスワードを記憶する
-                            </label>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary btn-info form-control">ログイン</button>
