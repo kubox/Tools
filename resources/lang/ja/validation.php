@@ -115,6 +115,9 @@ return [
         'name'         => '名前',
         'email'        => 'メールアドレス',
         'password'     => 'パスワード',
+        'admin'        => '管理者権限',
+        'coment'       => '説明文',
+        'newpassword'  => 'パスワード',
     ],
 
 ];

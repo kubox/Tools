@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Repositories\UserRepositoryInterface;
+use Illuminate\Contracts\Auth\Access\Gate;
+use Hash;
 
 
 /**
@@ -14,12 +16,19 @@ class UserService
     /** @var UserRepositoryInterface  */
     protected $user;
 
+    protected $gate;
+
     /**
      * @param UserRepositoryInterface $user
+     * @param Gate $gate
      */
-    public function __construct(UserRepositoryInterface $user)
+    public function __construct(
+        UserRepositoryInterface $user,
+        Gate $gate
+    )
     {
         $this->user = $user;
+        $this->gate = $gate;
     }
 
     /**
@@ -29,6 +38,8 @@ class UserService
      */
     public function registerUser(array $params)
     {
+        $params['admin'] = (isset($params['admin'])) ? 1 : 0 ;
+
         $user = $this->user->save($params);
 
         return $user;
@@ -40,9 +51,7 @@ class UserService
      */
     public function getUser($id)
     {
-        $user = $this->user->find($id);
-
-        return $user;
+        return $this->user->find($id);
     }
 
     /**
@@ -52,9 +61,7 @@ class UserService
      */
     public function getPage($page = 1, $limit = 20)
     {
-        $result = $this->user->byPage($page, $limit);
-
-        return $result;
+        return $this->user->byPage($page, $limit);
     }
 
     /*
@@ -62,9 +69,32 @@ class UserService
      */
     public function destroyUser($id)
     {
-        $result = $this->user->destroy($id);
-
-        return $result;
+        return $this->user->destroy($id);
     }
 
+    /*
+     * @param $id
+     * @return bool
+     */
+    public function getUserAttributes($id)
+    {
+        return $this->gate->check('update', $this->getUser($id));
+    }
+
+    /*
+     * @param string $input
+     * @param int $id
+     *
+     * @return bool
+     */
+    public function checkPassword($input, $id)
+    {
+        $user = $this->getUser($id);
+
+        if(!$user) {
+            return false;
+        }
+
+        return Hash::check($input, $user['password']);
+    }
 }

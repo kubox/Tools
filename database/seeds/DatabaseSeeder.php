@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         \App\User::create([
             'name'     => 'admin',
             'password' => bcrypt('testtest'),
+            'comment'  => 'Default Users',
+            'admin'    => true,
+            'remember_token' => str_random(10),
         ]);
 
         Model::reguard();

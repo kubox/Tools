@@ -21,16 +21,16 @@
 
                 <div class="box-body table-responsive no-padding">
 
-                    @if ($viewmesseage['success'])
+                    @if ($success)
                         <div class="col-sm-11">
                             <div class="callout callout-success" role="alert">
-                                <p>{{ $viewmesseage['success'] }}</p>
+                                <p>{{ $success }}</p>
                             </div>
                         </div>
-                    @elseif($viewmesseage['error'])
+                    @elseif($error)
                         <div class="col-sm-11">
                             <div class="callout callout-danger" role="alert">
-                                <p>{{ $viewmesseage['error'] }}</p>
+                                <p>{{ $error }}</p>
                             </div>
                         </div>
                     @endif
@@ -39,6 +39,8 @@
                         <tr>
                             <th>ID</th>
                             <th>名前</th>
+                            <th>管理者</th>
+                            <th>説明</th>
                             <th>最終更新</th>
                             <th>登録日時</th>
                             <th>機能</th>
@@ -47,7 +49,19 @@
                         <tr>
                             <td>{{ $row->id }}</td>
                             <td>{{ $row->name }}</td>
-                            <td>{{ $row->update_at }}</td>
+                            <td>
+                                @if($row->admin > 0)
+                                <i class="fa fa-flag"></i>
+                                @endif
+                            </td>
+                            <td>{{ $row->comment }}</td>
+                            <td>
+                                @if($row->updated_at > $row->created_at)
+                                    {{ $row->updated_at }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                             <td>{{ $row->created_at }}</td>
                             <td>
                                 <form class="form-horizontal" id="formEdit" role="form" method="GET" action="{{ route('admin.account.edit', [$row->id]) }}">

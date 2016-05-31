@@ -41,6 +41,16 @@
                             <input type="text" class="form-control" id="inputName" placeholder="名前を入力してください" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
+                    <div class="form-group @if($errors->first('admin'))has-error @endif">
+                        <label for="inputAdmin" class="col-sm-2 control-label">権限</label>
+                        <div class="col-sm-10">
+                        <div class="checkbox icheck col-sm-10">
+                            <label>
+                                <input type="checkbox" name="admin" id="inputAdmin" value="0"> 管理者権限として登録する
+                            </label>
+                        </div>
+                        </div>
+                    </div>
                     <div class="form-group @if($errors->first('password'))has-error @endif">
                         <label for="inputPassword" class="col-sm-2 control-label">パスワード</label>
                         <div class="col-sm-10">
@@ -51,6 +61,12 @@
                         <label for="password_confirmation" class="col-sm-2 control-label">確認</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control" id="password_confirmation" placeholder="もう一度パスワードを入力してください" name="password_confirmation">
+                        </div>
+                    </div>
+                    <div class="form-group @if($errors->first('comment'))has-error @endif">
+                        <label for="inputComment" class="col-sm-2 control-label">説明</label>
+                        <div class="col-sm-10">
+                            <input type=text class="form-control" id="inputComment" placeholder="このアカウントの用途や説明を記載してください" name="comment">
                         </div>
                     </div>
                 </div>

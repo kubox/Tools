@@ -58,15 +58,15 @@
             </a>
             <ul class="treeview-menu">
                 <li class="treeview">
-                    <a href="{{ route('admin.account.create') }}">
-                        <i class="fa fa-user-plus"></i>
-                        <span>登録する</span>
-                    </a>
-                </li>
-                <li class="treeview">
                     <a href="{{ route('admin.account.index') }}">
                         <i class="fa fa-users"></i>
                         <span>一覧で見る</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="{{ route('admin.account.create') }}">
+                        <i class="fa fa-user-plus"></i>
+                        <span>登録する</span>
                     </a>
                 </li>
             </ul>

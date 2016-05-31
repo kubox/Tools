@@ -30,29 +30,37 @@
         <mandatory>1</mandatory>
         <data-type>varchar(60)</data-type>
       </column>
-      <column id="9" parent="3" name="remember_token">
+      <column id="9" parent="3" name="comment">
+        <mandatory>1</mandatory>
+        <data-type>varchar(60)</data-type>
+      </column>
+      <column id="10" parent="3" name="admin">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="11" parent="3" name="remember_token">
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="10" parent="3" name="created_at">
+      <column id="12" parent="3" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="11" parent="3" name="updated_at">
+      <column id="13" parent="3" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <index id="12" parent="3" name="users_name_unique">
+      <index id="14" parent="3" name="users_name_unique">
         <columns>name</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="13" parent="3" name="PRIMARY">
+      <key id="15" parent="3" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="14" parent="3" name="users_name_unique">
+      <key id="16" parent="3" name="users_name_unique">
         <columns>name</columns>
         <underlying-index>users_name_unique</underlying-index>
       </key>

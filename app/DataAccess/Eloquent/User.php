@@ -23,6 +23,8 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
  * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User whereEmail($value)
  * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User whereComment($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User whereAdmin($value)
  * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User whereAuthToken($value)
  * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User whereRememberToken($value)
  * @method static \Illuminate\Database\Query\Builder|\App\DataAccess\Eloquent\User whereCreatedAt($value)
@@ -51,7 +53,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-    protected $fillable = ['name', 'password', 'auth_token'];
+    protected $fillable = ['name', 'password', 'comment', 'admin', 'auth_token'];
 
     /**
      * The attributes excluded from the model's JSON form.
